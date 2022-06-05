@@ -1,0 +1,19 @@
+# List docker images
+docker images -ls 
+
+# List all docker container
+docker ps - a
+
+# See docker history
+docker history -H [image-name]:[tag-name]
+
+# Remove docker container 
+docker rm -fv [container-name]
+
+# Run docker background
+docker run -d --name [name] [image-name]:[tag-name]
+
+# Build image
+docker build --tag [image-name]:[tag-name] .
+
+
