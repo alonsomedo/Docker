@@ -1,3 +1,7 @@
+# -------------------------------------------------
+# -- Docker Images
+# -------------------------------------------------
+
 # List docker images
 docker images -ls 
 
@@ -11,7 +15,7 @@ docker history -H [image-name]:[tag-name]
 docker rm -fv [container-name]
 
 # Run docker background
-docker run -d --name [name] [image-name]:[tag-name]
+docker run -d -p [port]:[port] --name [name] [image-name]:[tag-name]
 
 # Build image
 docker build --tag [image-name]:[tag-name] .
