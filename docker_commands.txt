@@ -5,6 +5,9 @@
 # List docker images
 docker images -ls 
 
+# List docker dangling images
+docker images -f "dangling=true"
+
 # List all docker container
 docker ps - a
 
