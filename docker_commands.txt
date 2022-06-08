@@ -23,4 +23,11 @@ docker run -d -p [port]:[port] --name [name] [image-name]:[tag-name]
 # Build image
 docker build --tag [image-name]:[tag-name] .
 
+# Rename docker container
+docker rename [docker-name] [new-docker-name]
 
+# Stop container
+docker stop [name/id]
+
+# Start container
+docker start [name/id]
