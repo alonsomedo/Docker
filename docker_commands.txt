@@ -2,6 +2,9 @@
 # -- Docker Images
 # -------------------------------------------------
 
+# Get an official image
+docker pull [mysql]
+
 # List docker images
 docker images -ls 
 
@@ -31,3 +34,7 @@ docker stop [name/id]
 
 # Start container
 docker start [name/id]
+
+# Enter to docker container 
+docker exec -ti [container-name] bash
+
