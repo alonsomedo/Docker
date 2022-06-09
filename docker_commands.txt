@@ -49,3 +49,16 @@ docker exec -u root -ti [container-name] bash
 
 # See docker logs
 docker logs -f [container-name]
+
+# Run docker image with mysql 
+docker run -d --name mysqldb1 -e "MYSQL_ROOT_PASSWORD=admin" mysql
+docker run -d -p 3333:3306 --name mysqldb2 -e "MYSQL_ROOT_PASSWORD=admin" -e "MYSQL_DATABASE=docker_db" -e "MYSQL_USER=docker" -e "MYSQL_PASSWORD=docker" mysql
+
+# Verify gateway, ip, mac of docker container
+ docker inspect [container-name]
+
+# Connect to myqsl database from our host using default port and using IP
+mysql -u root -h 172.17.0.2 -padmin
+
+# Connect to mysql database using a specific port 
+mysql -u root -padmin -h 127.0.0.1 --port 3333
