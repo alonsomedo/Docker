@@ -20,11 +20,17 @@ docker history -H [image-name]:[tag-name]
 # Remove docker container 
 docker rm -fv [container-name]
 
+# Remove all docker containers
+docker ps -q | xargs docker rm -f
+
 # Run docker background
 docker run -d -p [port]:[port] --name [name] [image-name]:[tag-name]
 
+# Run docker interactive and declaring enviroment variable
+docker run -dti -e  "prueba=4321" --name [name] [docker-image]
+
 # Build image
-docker build --tag [image-name]:[tag-name] .
+docker build -f [Dockerfilename] --tag [image-name]:[tag-name] .
 
 # Rename docker container
 docker rename [docker-name] [new-docker-name]
@@ -38,3 +44,8 @@ docker start [name/id]
 # Enter to docker container 
 docker exec -ti [container-name] bash
 
+# Enter to docker container as root
+docker exec -u root -ti [container-name] bash
+
+# See docker logs
+docker logs -f [container-name]
