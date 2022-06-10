@@ -1,5 +1,5 @@
 # -------------------------------------------------
-# -- Docker Images
+# -- Docker Commands
 # -------------------------------------------------
 
 # Get an official image
@@ -65,3 +65,15 @@ mysql -u root -padmin -h 127.0.0.1 --port 3333
 
 # Very how much ram and cpu use a docker container
 docker stats [container-name]
+
+# Limit cotainer resources
+docker run -d -m "500mb" --name mongo2 mongo
+
+# See cpun options to limit 
+docker run --help | grep cpu
+
+# Limit cpu available to use by the container
+docker run -d -m "1gb" --cpuset-cpus 0-2  --name mongo3 mongo
+
+# Copy files from host to container an visceversa
+docker cp [folder/file] [container-name]:[container-path]

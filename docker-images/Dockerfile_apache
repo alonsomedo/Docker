@@ -8,7 +8,7 @@ RUN yum install httpd -y
 
 # WORKDIR /var/www/html
 
-COPY blog /var/www/html/prueba.html
+#COPY blog /var/www/html/prueba.html
 
 RUN echo "$(whoami)" >  /var/www/html/user1.html
 
