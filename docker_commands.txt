@@ -77,3 +77,19 @@ docker run -d -m "1gb" --cpuset-cpus 0-2  --name mongo3 mongo
 
 # Copy files from host to container an visceversa
 docker cp [folder/file] [container-name]:[container-path]
+
+# Convert a container into a docker image
+# Note: All the things inside a VOLUME wont be migrated to the image
+docker commit [container-name] [container-image] 
+
+# Override CMD when running docker container
+docker run -d -p 8080:8080 [container-image] [CMD] [port]
+docker run -d -p 8080:8080 centos python -m SimpleHTTPServer 8080 
+
+# Create temporary containers
+docker run --rm -ti --name centos centos bash
+# Note: 
+# rm: indicate that the container will be temporary until we exit from it 
+# ti: interactiva we dont use d for detach 
+
+
