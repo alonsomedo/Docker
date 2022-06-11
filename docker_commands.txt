@@ -92,4 +92,26 @@ docker run --rm -ti --name centos centos bash
 # rm: indicate that the container will be temporary until we exit from it 
 # ti: interactiva we dont use d for detach 
 
+# Mysql dump database
+mysqldump -u root -padmin -h 127.0.0.1 --port 3333 sys > dump.sql
 
+# Create host volume with mysql database
+docker run -d -p 3333:3306 --name mysqldb -e "MYSQL_ROOT_PASSWORD=admin" -v /home/alonsmd/Dummy/mysql:/var/lib/mysql  mysql
+
+# Create annonymous volume with mysql database
+# When you remove the container using param -v, the volume get deleted too
+# annonymous volume is store in docker path
+docker run -d -p 3333:3306 --name mysqldb -e "MYSQL_ROOT_PASSWORD=admin" -v /var/lib/mysql  mysql
+
+# Get docker location in host
+docker info | grep -i root
+
+# List dangling volumes
+docker volume ls -f dangling=true
+
+# Create volume 
+docker volume create [volume-name]
+
+# Create container with named volume
+# With named volume if we delete the container using -v param , the volume wont be deleted
+docker run -d -p 3333:3306 --name mysqldb -e "MYSQL_ROOT_PASSWORD=admin" -v [volume-name]:/var/lib/mysql  mysql
