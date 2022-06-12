@@ -142,3 +142,26 @@ docker network rm [network-name]
 
 # Define an ip for a container
 docker run --network [network-name] --ip [ip] -d --name test-container -ti centos
+
+# -------------------------------------------------
+# -- Docker Compose
+# -- Docker docs: docker compose file reference
+# -------------------------------------------------
+
+# Structure
+-----------
+version:
+services:
+volumes: (optional)
+network: (optional)
+
+# Create docker container from docker-compose file
+docker-compose -f [file-name] up -d
+
+# Delete docker containter created with docker-compose
+# First stop container
+# Second delete container
+# Third delete network 
+docker-compose -f [file-name]  down
+
+
