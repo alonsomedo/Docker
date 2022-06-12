@@ -115,3 +115,30 @@ docker volume create [volume-name]
 # Create container with named volume
 # With named volume if we delete the container using -v param , the volume wont be deleted
 docker run -d -p 3333:3306 --name mysqldb -e "MYSQL_ROOT_PASSWORD=admin" -v [volume-name]:/var/lib/mysql  mysql
+
+# List docker networks 
+docker network ls 
+docker network ls | grep bridge
+
+# Bridge is the default network in docker, all the containers by the default take it. 
+
+# Get information about the network
+docker inspect ls bridge 
+
+# Create a docker network
+docker network create test-network
+
+# Create a docker network with specific subnet and gateway
+docker network create -d bridge --subnet 172.124.10.0/24 --gateway 172.124.10.1 docker-test-network
+
+# Connect container to existing network.
+docker network connect [network-name] [container-name]
+
+# Disconnect container from network.
+docker network disconnect [netowrk-name] [container-name] 
+
+# Remote a network
+docker network rm [network-name]
+
+# Define an ip for a container
+docker run --network [network-name] --ip [ip] -d --name test-container -ti centos
