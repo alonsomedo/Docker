@@ -164,4 +164,9 @@ docker-compose -f [file-name] up -d
 # Third delete network 
 docker-compose -f [file-name]  down
 
+# Build image in docker-compose
+docker-compose build 
 
+# Give a project  name to docker-compose
+# When you set a project name you muse it in everything otherwise services will run with the default name 
+docker-compose -p [project-name]  -f [file-name] up -d
