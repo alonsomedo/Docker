@@ -170,3 +170,14 @@ docker-compose build
 # Give a project  name to docker-compose
 # When you set a project name you muse it in everything otherwise services will run with the default name 
 docker-compose -p [project-name]  -f [file-name] up -d
+
+
+# Docker Registry 
+Its a service where we can upload and download images. 
+
+# Steps to create a local Registry
+# A registry is also a container that needs a volume to persist the data
+
+# 1. create a directory mkdir registry
+# 2. cd registry
+# 3. docker run -d -p 5000:5000 --name registry -v $PWD/data:/var/lib/registry:2
